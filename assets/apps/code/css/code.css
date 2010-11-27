@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+body { color: #999; }
+#container {
+	margin: 4em;
+	position: relative;
+}
+.pagination { text-align: center; }
+a {
+	color: #ff0084;
+	text-decoration: none;
+}
+a:visited { color: #ff0084; }
+a:visited:hover,
+a:focus,
+a:focus:hover,
+a:hover,
+a:active {
+	text-decoration: underline;
+}
+p {
+	font-size: 108%;
+	color: #000;
+}
+h1,
+h2 {
+	font-weght: bold;
+	font-size: 138.5%;
+	line-height: 1;
+	color: #000;
+	letter-spacing: .025em;
+	margin: 1em 0 .25em;
+	padding: 0;
+}
+h6 {
+	width: 130px;
+	height: 27px;
+	position: absolute;
+	top: -15px;
+	right: 0;
+	z-index: 420;
+}
+ul,
+ul li{
+	margin: 0;
+	padding: 0;
+}
+ul li {
+	margin: .25em 0;
+	list-style-type: none;
+}
+ul li.copy { margin: 0; }
+ul li.copy div {
+	border-width: 1px 1px 0;
+	border-style: solid;
+	border-color: #999;
+	padding: .5em;
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.65, rgb(255,255,255)),
+		color-stop(1, rgb(238,238,238))
+	);
+	background-image: -moz-linear-gradient(
+		center bottom,
+		rgb(255,255,255) 65%,
+		rgb(238,238,238) 100%
+	);
+}
+ul li.copy div input {
+	font: 108%/1 "Lucida Console", Monaco, monospace;
+	width: 100% !important;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	background: transparent;
+}
+ul li.code {
+	margin: 0 0 .25em;
+	position: relative;
+}
+ul li.code .snip {
+	width: 100%;
+	position: absolute;
+	height: 5px;
+	left: 0;
+	bottom: 0;
+	background: url(../images/snip.gif) repeat-x;
+}
+ul li.meta {
+	font-size: 93%;
+	letter-spacing: .05em;
+	margin: 0 0 1em;
+}
+ul li.meta span { margin: 0 .5em; }
+div.description p {
+	font-size: 108%;
+	color: #000;
+}
+.hide, hr { display: none !important; }
+.off {
+	position: absolute;
+	left: -999em;
+	top: -999em;
+}
+
+/* Embed overrides: */
+body#preview .embed { overflow: hidden; }

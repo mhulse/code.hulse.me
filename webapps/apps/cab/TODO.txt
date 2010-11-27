@@ -1,0 +1,5 @@
+1. Create custom style plugin
+
+2. Add all MIME types to language mime admin dropdown (remove duplicates)
+
+3. Google analytics code.

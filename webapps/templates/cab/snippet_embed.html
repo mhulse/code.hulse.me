@@ -1,0 +1,41 @@
+{% extends "cab/base.html" %}
+
+{% load cab_tags %}
+
+{% block title %}{{ object.title }} | Embed | {% endblock %}
+
+{% block css_external_head %}
+	<!-- Styles for demo only: -->
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}code/css/code.css">
+{% endblock css_external_head %}
+
+{% block body_id %}embed{% endblock body_id %}
+
+{% block js_head %}
+	if (document.getElementById) document.write('<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}code/css/js.css">');
+{% endblock js_head %}
+
+{% block content %}
+	{% with object as snippet %}
+		<p>Here's the one-liner:</p>
+		<p><code>{% filter force_escape %}<script type="text/javascript" src="{% absurl cab_snippet_js snippet.sid %}"></script>{% endfilter %}</code></p>
+		<p>Alternatively, view source for the <a href="http://jquery.com/">jQuery</a> version.</p>
+		<div class="loading">
+			<div class="snippet" id="sid_{{ snippet.sid }}"><a href="{% absurl cab_snippet_raw snippet.sid %}">{{ snippet.title }}</a></div>
+		</div>
+	{% endwith %}
+{% endblock content %}
+
+{% block js_external_footer %}
+	<script type="text/javascript" src="{{ MEDIA_URL }}code/js/embed.js"></script>
+{% endblock js_external_footer %}
+
+{% block js_footer %}
+	$(document).ready(function () {
+		
+		$('.snippet').embed({
+			on_loaded: function() { this.show(); }
+		});
+		
+	});
+{% endblock js_footer %}

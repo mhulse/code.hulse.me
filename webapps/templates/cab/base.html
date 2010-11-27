@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>{% block title %}{% endblock title %}Code | hulse.me</title>
+	
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.0.0/build/cssfonts/fonts-min.css&amp;3.0.0/build/cssreset/reset-min.css&amp;3.0.0/build/cssbase/base-min.css">
+	
+	{% block css_external_head %}
+		<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}code/css/code.css">
+		<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}code/css/embed.css">
+	{% endblock css_external_head %}
+	
+	<style type="text/css">
+		<!--
+			{% block css_head %}{% endblock css_head %}
+		-->
+	</style>
+		
+	<script type="text/javascript">
+		<!--
+			{% block js_head %}{% endblock js_head %}
+		//-->
+	</script>
+	
+	<script type="text/javascript">var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-11770240-1']); _gaq.push(['_trackPageview']);</script>
+	
+</head>
+<body id="{% block body_id %}{% endblock body_id %}">
+	
+	{% block container %}
+		<div id="container">
+			<h6><a href="{% url cab_snippet_list %}"><img src="{{ MEDIA_URL }}code/images/code.png" alt="code.hulse.me logo"></a></h6>
+			{% block content %}{% endblock content %}
+		</div>
+	{% endblock container %}
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	
+	{% block js_external_footer %}{% endblock js_external_footer %}
+	
+	<script type="text/javascript">
+		<!--
+			
+			{% block js_footer %}
+				
+				$(document).ready(function () {
+					
+					$('.copy input').click(function() {
+						$(this).focus().select();
+					});
+					
+				});
+				
+			{% endblock js_footer %}
+			
+		//-->
+	</script>
+	
+	<script type="text/javascript">(function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga); })();</script>
+	
+</body>
+</html>

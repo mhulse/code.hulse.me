@@ -1,0 +1,18 @@
+document.open();
+document.writeln('<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}code/css/embed.css"></link>');
+document.write('{% filter escapejs %}{% with object as snippet %}
+<div class="embed">
+	{% include "cab/_links.html" %}
+	<table cellpadding="0" cellspacing="0">
+		<tr>
+			<th>
+				<pre>{% for l in snippet.line_count %}<a class="number" href="#l{{ forloop.counter }}"{# id="l{{ forloop.counter }}"#}>{{ forloop.counter }}</a>{% endfor %}</pre>
+			</th>
+			<td{# width="100%"#}>
+				<pre>{% for line in snippet.code_splitted %}<span class="line" id="l{{ forloop.counter }}">{% if line %}{{ line|safe }}{% else %}&nbsp;{% endif %}</span>{% endfor %}</pre>
+			</td>
+		</tr>
+	</table>
+</div>
+{% endwith %}{% endfilter %}');
+document.close();

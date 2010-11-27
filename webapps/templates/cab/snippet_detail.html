@@ -1,0 +1,44 @@
+{% extends "cab/base.html" %}
+
+{% load markup %}
+
+{% block title %}{{ object.title }} | {% endblock %}
+
+{% block body_id %}detail{% endblock body_id %}
+
+{% block content %}
+	
+	{% if object %}
+		
+		{% with object as snippet %}
+			
+			<h1>{% include "cab/_title.html" %}</h1>
+			<ul>
+				<li class="copy">{% include "cab/_embed.html" %}</li>
+				<li class="code">
+					<div class="embed">
+						{% include "cab/_links.html" %}
+						<table cellpadding="0" cellspacing="0">
+							<tr>
+								<th>
+									<pre>{% for l in snippet.line_count %}<a class="number" href="#l{{ forloop.counter }}"{# id="l{{ forloop.counter }}"#}>{{ forloop.counter }}</a>{% endfor %}</pre>
+								</th>
+								<td{# width="100%"#}>
+									<pre>{% for line in snippet.code_splitted %}<span class="line" id="l{{ forloop.counter }}">{% if line %}{{ line|safe }}{% else %}&nbsp;{% endif %}</span>{% endfor %}</pre>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</li>
+				<li class="meta">{% include "cab/_meta.html" %}</li>
+			</ul>
+			
+			{% if snippet.description_html %}
+				<div class="description">{{ snippet.description_html|safe }}</div>
+			{% endif %}
+			
+		{% endwith %}
+	
+	{% endif %}
+
+{% endblock %}

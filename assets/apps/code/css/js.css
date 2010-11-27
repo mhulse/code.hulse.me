@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.loading {
+	background: url(../images/loader.gif) no-repeat center center;
+	height: auto;
+	min-height: 32px;
+	margin: 1em 0;
+}
+* html .loading { height: 32px; }
+
+.snippet { display: none; }

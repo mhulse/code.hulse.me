@@ -1,0 +1,1 @@
+{{ snippet.language }} <span>/</span> {{ snippet.author.username }} <span>/</span> Published {{ snippet.published|date:"l, F jS, Y" }}{% if snippet.is_modified %} <span>/</span> Updated {{ snippet.updated|timesince }} ago{% endif %}
